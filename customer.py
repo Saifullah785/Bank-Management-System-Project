@@ -1,6 +1,7 @@
 # customer Details
 from database import *
 
+# creating a class Customer
 class Customer:
     def __init__(self, username, password, name, age, city, account_number, status):
         self.__username = username
@@ -12,6 +13,6 @@ class Customer:
        
 
     def createuser(self):
-        temp = db_query(f"INSERT INTO customers VALUES ('{self.__username}', '{self.__password}', '{self.__name}', {self.__age}, '{self.__city}', '{self.__account_number}', 1);")
+        db_query(f"INSERT INTO customers VALUES ('{self.__username}', '{self.__password}', '{self.__name}', {self.__age}, '{self.__city}', 0 , '{self.__account_number}', 1);")
         mydb.commit()
 
