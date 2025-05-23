@@ -46,9 +46,10 @@ class Bank:
                  f"'{datetime.datetime.now()}',"
                  f"'{self.__account_number}',"
                  f"'Amount Deposit',"
-                 f"'{amount}');")
+                 f"'{amount}'"
+                 f")")
         
-        print(f"{self.__username} Amount Deposited Successfully in your Account {self.__account_number}")
+        print(f"{self.__username} Amount Deposited Successfully into your Account {self.__account_number}")
         
 
     # creating a withdraw method which will withdraw the amount
@@ -86,7 +87,14 @@ class Bank:
         
             db_query(f"UPDATE customers SET balance = '{test1}' WHERE username = '{self.__username}';")
             db_query(f"UPDATE customers SET balance = '{test2}' WHERE account_number = '{receive}';")
+            receiver_username = db_query(f"SELECT username FROM customers WHERE account_number = '{receive}' ;")
             self.balance_enquiry() 
+            db_query(f"INSERT INTO {receiver_username[0][0]}_transaction VALUES ("
+                     f"'{datetime.datetime.now()}',"
+                     f"'{self.__account_number}',"
+                     f"'Fund Transfer -> {self.__account_number}',"
+                     f"'{amount}'"
+                     f")")
             db_query(f"INSERT INTO {self.__username}_transaction VALUES ("
                      f"'{datetime.datetime.now()}',"
                      f"'{self.__account_number}',"

@@ -3,7 +3,7 @@ from database import *
 
 # creating a class Customer
 class Customer:
-    def __init__(self, username, password, name, age, city, account_number, status):
+    def __init__(self, username, password, name, age, city, account_number):
         self.__username = username
         self.__password = password
         self.__name = name

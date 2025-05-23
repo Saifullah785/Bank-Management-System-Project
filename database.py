@@ -32,7 +32,7 @@ def create_customer_table():
                age INTEGER NOT NULL,
                city VARCHAR(20) NOT NULL,
                balance INTEGER NOT NULL ,
-               account_number INTEGER UNIQUE NOT NULL,
+               account_number INTEGER NOT NULL,
                status BOOLEAN NOT NULL)
  
 
